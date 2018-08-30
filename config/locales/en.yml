@@ -1,0 +1,52 @@
+en:
+  fuser:
+    endpoints:
+      verify_token:           "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=%{api_key}"
+      refresh_token:          "https://securetoken.googleapis.com/v1/token?key=%{api_key}"
+      sign_up:                "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=%{api_key}"
+      sign_in:                "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=%{api_key}"
+      reset_password:         "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode?key=%{api_key}"
+      verify_reset_password:  "https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPassword?key=%{api_key}"
+      confirm_reset_password: "https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPassword?key=%{api_key}"
+      change_email:           "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
+      change_password:        "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
+    errors:
+      default: "Something went wrong please try again."
+      sign_up:
+        email_exists: "The email address is already in use by another account."
+        operation_not_allowed: "Password sign-in is disabled for this project."
+        too_many_attempts_try_later: "We have blocked all requests from this device due to unusual activity. Try again later."
+      sign_in:
+        invalid_password: "The password is invalid or the user does not have a password."
+        user_disabled: "The user account has been disabled by an administrator."
+        email_not_found: "There is no user record corresponding to this identifier. The user may have been deleted."
+      anonymous_sign_in:
+        operation_not_allowed: "Anonymous user sign-in is disabled for this project."
+      verify_token:
+        invalid_custom_token: "The custom token format is incorrect or the token is invalid for some reason."
+        credential_mismatch: "The custom token corresponds to a different Firebase project."
+      refresh_token:
+        token_expired: "The user's credential is no longer valid. The user must sign in again."
+        user_disabled: "The user account has been disabled by an administrator."
+        user_not_found: "The user corresponding to the refresh token was not found. It is likely the user was deleted."
+        invalid_refresh_token: "An invalid refresh token is provided."
+        invalid_grant_type: "the grant type specified is invalid."
+        missing_refresh_token: "no refresh token provided."
+      reset_password:
+        email_not_found: "There is no user record corresponding to this identifier. The user may have been deleted."
+      verify_reset_password:
+        operation_not_allowed: "Password sign-in is disabled for this project."
+        expired_oob_code: "The action code has expired."
+        invalid_oob_code: "The action code is invalid. This can happen if the code is malformed, expired, or has already been used."
+      confirm_reset_password:
+        operation_not_allowed: "Password sign-in is disabled for this project."
+        expired_oob_code: "The action code has expired."
+        invalid_oob_code: "The action code is invalid. This can happen if the code is malformed, expired, or has already been used."
+        user_disabled: "The user account has been disabled by an administrator."
+      change_email:
+        email_exists: "The email address is already in use by another account."
+        invalid_id_token: "The user's credential is no longer valid. The user must sign in again."
+      change_password:
+        invalid_id_token: "The user's credential is no longer valid. The user must sign in again."
+        weak_password: "The password must be 6 characters long or more."
+
