@@ -1,3 +1,5 @@
+require 'i18n_config'
+
 require 'fuser/version'
 require 'fuser/configuration'
 require 'fuser/endpoint'
