@@ -61,7 +61,7 @@ module Fuser
       when :confirm_reset_password then
         {
           'oobCode': params[:oob_code],
-          'newPassword': new_password
+          'newPassword': params[:new_password]
         }
       when :change_email then
         {

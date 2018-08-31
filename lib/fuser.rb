@@ -18,7 +18,7 @@ module Fuser
 
   def self.call(action, params)
     request = Fuser::Request.call(action, params: params)
-    Fuser::Response.new(request.response)
+    Fuser::Response.new(request.response, action: action)
   end
 
   I18n.t('fuser.endpoints').keys.each do |request_action|

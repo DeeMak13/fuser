@@ -2,8 +2,9 @@ require 'json'
 
 module Fuser
   class Response
-    def initialize(response)
+    def initialize(response, action: action)
       @response = response
+      @action = action
     end
 
     def body
@@ -30,12 +31,12 @@ module Fuser
 
     private
 
-    attr_accessor :response
+    attr_accessor :response, :action
 
     def error_explanation(error_key)
       I18n.t(
         error_key.downcase,
-        scope: %i[fuser errors],
+        scope: [:fuser, :errors, action],
         default: default_error_message
       )
     end
