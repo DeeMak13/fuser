@@ -1,3 +1,5 @@
+require 'httparty'
+
 module Fuser
   class Request
     def self.call(*args)
@@ -18,6 +20,8 @@ module Fuser
     end
 
     private
+
+    attr_accessor :action, :params
 
     def default_request_headers
       { 'Content-Type': 'application/json' }

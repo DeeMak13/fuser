@@ -1,16 +1,14 @@
+require 'json'
+
 module Fuser
   class Response
-    attr_accessor :response
-
     def initialize(response)
       @response = response
     end
 
     def body
-      JSON.parse(response.body, quirks_mode: true).tap do |parsed_response|
-        parsed_response.dig('error', 'message').&tap do |error_key|
-          parsed_response['error']['message'] = error_explanation(error_key)
-        end
+      @body ||= JSON.parse(response.body, quirks_mode: true).tap do |parsed_response|
+        expand_error(parsed_response)
       end
     end
 
@@ -19,14 +17,20 @@ module Fuser
     end
 
     def success?
-      response.status == 200
+      code == '200'
     end
 
     def code
-      response.status
+      response.code
+    end
+
+    def error_message
+      body.dig('error', 'message')
     end
 
     private
+
+    attr_accessor :response
 
     def error_explanation(error_key)
       I18n.t(
@@ -38,6 +42,17 @@ module Fuser
 
     def default_error_message
       I18n.t('fuser.errors.default')
+    end
+
+    def expand_error(parsed_response)
+      error_key = parsed_response.dig('error', 'message')
+      return unless error_key
+      parsed_response.deep_merge!(
+        'error' => {
+          'message' => error_explanation(error_key),
+          'key' => error_key
+        }
+      )
     end
   end
 end
