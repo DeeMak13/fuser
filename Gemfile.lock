@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     fuser (0.1.0)
+      httparty
 
 GEM
   remote: https://rubygems.org/
@@ -34,7 +35,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   fuser!
-  httparty
   i18n
   rake (~> 10.0)
   rspec (~> 3.0)
