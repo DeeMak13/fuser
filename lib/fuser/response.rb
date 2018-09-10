@@ -2,7 +2,7 @@ require 'json'
 
 module Fuser
   class Response
-    def initialize(response, action: action)
+    def initialize(response, action:)
       @response = response
       @action = action
     end
