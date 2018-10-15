@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Fuser
   module Endpoint
     def self.for(action)

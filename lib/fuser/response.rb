@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 
 module Fuser
@@ -48,6 +50,7 @@ module Fuser
     def expand_error(parsed_response)
       error_key = parsed_response.dig('error', 'message')
       return unless error_key
+
       parsed_response.deep_merge!(
         'error' => {
           'message' => error_explanation(error_key),
