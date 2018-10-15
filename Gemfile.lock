@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     fuser (0.1.0)
-      httparty
-      i18n
+      httparty (~> 0.16.2)
+      i18n (~> 1.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -17,7 +17,7 @@ GEM
     hashdiff (0.3.7)
     httparty (0.16.2)
       multi_xml (>= 0.5.2)
-    i18n (1.1.0)
+    i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     multi_xml (0.6.0)
     public_suffix (3.0.3)
@@ -49,7 +49,7 @@ DEPENDENCIES
   fuser!
   rake (~> 10.0)
   rspec (~> 3.0)
-  webmock
+  webmock (~> 3.4.2)
 
 BUNDLED WITH
-   1.16.3
+   1.16.4

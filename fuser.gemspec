@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['DeeMak13']
   spec.email         = ['deemakk13@gmail.com']
 
-  spec.summary       = 'Firebase Authentication and User Management'
-  spec.description   = "An Open Source Ruby wrapper for Firebase's native and third-party authentication."
+  spec.summary       = "Firebase Authentication and User Management"
+  spec.description   = "Ruby wrapper for Firebase's native and third-party authentication."
   spec.homepage      = 'https://github.com/DeeMak13/fuser'
   spec.license       = 'MIT'
 
@@ -20,9 +20,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'httparty'
-  spec.add_runtime_dependency 'i18n'
+  spec.add_runtime_dependency 'httparty', '~> 0.16.2'
+  spec.add_runtime_dependency 'i18n', '~> 1.1.0'
+
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'webmock', '~> 3.4.2'
 end
