@@ -10,6 +10,7 @@ en:
       confirm_reset_password: "https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPassword?key=%{api_key}"
       change_email:           "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
       change_password:        "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
+      set_account_info:       "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
     errors:
       default: "Something went wrong please try again."
       sign_up:

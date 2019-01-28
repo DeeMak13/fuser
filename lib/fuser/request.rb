@@ -74,9 +74,16 @@ module Fuser
       when :change_password then
         {
           'idToken': params[:token],
-          'email': params[:new_password],
+          'password': params[:new_password],
           'returnSecureToken': true
         }
+      when :set_account_info then
+        {
+          'idToken': params[:token],
+          'email': params[:new_email],
+          'password': params[:new_password],
+          'returnSecureToken': true
+        }.compact
       end
     end
   end
