@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fuser (0.1.1)
+    fuser (0.1.2)
       httparty (~> 0.16.2)
       i18n (~> 1.1, >= 1.1.0)
 
