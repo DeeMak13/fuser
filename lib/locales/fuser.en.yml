@@ -11,6 +11,7 @@ en:
       change_email:           "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
       change_password:        "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
       set_account_info:       "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
+      oauth_sign_in:       "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAssertion?key=%{api_key}"
     errors:
       default: "Something went wrong please try again."
       sign_up:
@@ -51,6 +52,7 @@ en:
         invalid_id_token: "The user's credential is no longer valid. The user must sign in again."
         weak_password: "The password must be 6 characters long or more."
       set_account_info:
+        credentials_too_old_login_again: "The user's credential is no longer valid. The user must sign in again."
         invalid_id_token: "The user's credential is no longer valid. The user must sign in again."
         email_exists: "The email address is already in use by another account."
         weak_password: "The password must be 6 characters long or more."

@@ -51,12 +51,8 @@ module Fuser
       error_key = parsed_response.dig('error', 'message')
       return unless error_key
 
-      parsed_response.deep_merge!(
-        'error' => {
-          'message' => error_explanation(error_key),
-          'key' => error_key
-        }
-      )
+      parsed_response['error']['message_explanation'] = error_explanation(error_key)
+      parsed_response['error']['key'] = error_key
     end
   end
 end

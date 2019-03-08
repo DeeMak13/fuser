@@ -84,7 +84,22 @@ module Fuser
           'password': params[:password],
           'returnSecureToken': true
         }.compact
+      when :oauth_sign_in then
+        {
+          'postBody': oauth_post_body(params),
+          'requestUri': params[:request_uri],
+          'returnSecureToken': true,
+          'returnIdpCredential': true
+        }
       end
+    end
+
+    def oauth_post_body(params)
+      [
+        params.slice(:access_token, :id_token)&.first&.join('='),
+        params.slice(:oauth_token_secret)&.first&.join('='),
+        "providerId=#{params[:provider_id]}"
+      ].compact.join('&')
     end
   end
 end
