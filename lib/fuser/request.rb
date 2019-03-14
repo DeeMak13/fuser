@@ -8,7 +8,7 @@ module Fuser
       new(*args).call
     end
 
-    def initialize(action, params:)
+    def initialize(action, params: {})
       @action = action
       @params = params
     end
@@ -65,31 +65,52 @@ module Fuser
           'oobCode': params[:oob_code],
           'newPassword': params[:new_password]
         }
-      when :change_email then
-        {
-          'idToken': params[:token],
-          'email': params[:email],
-          'returnSecureToken': true
-        }
-      when :change_password then
-        {
-          'idToken': params[:token],
-          'password': params[:password],
-          'returnSecureToken': true
-        }
       when :set_account_info then
         {
           'idToken': params[:token],
           'email': params[:email],
           'password': params[:password],
+          'displayName': params[:display_name],
+          'photoUrl': params[:photo_url],
+          'deleteAttribute': params[:delete_attributes],
           'returnSecureToken': true
         }.compact
+      when :get_account_info then
+        {
+          'idToken': params[:token]
+        }
       when :oauth_sign_in then
         {
           'postBody': oauth_post_body(params),
           'requestUri': params[:request_uri],
           'returnSecureToken': true,
           'returnIdpCredential': true
+        }
+      when :oauth_link then
+        {
+          'idToken': params[:token],
+          'postBody': oauth_post_body(params),
+          'requestUri': params[:request_uri],
+          'returnSecureToken': true,
+          'returnIdpCredential': true
+        }
+      when :unlink_provider then
+        {
+          'idToken': params[:token],
+          'deleteProvider': params[:providers]
+        }
+      when :send_email_verification then
+        {
+          'idToken': params[:token],
+          'requestType': 'VERIFY_EMAIL'
+        }
+      when :confirm_email_verification then
+        {
+          'oobCode': params[:oob_code]
+        }
+      when :delete_account then
+        {
+          'idToken': params[:token]
         }
       end
     end

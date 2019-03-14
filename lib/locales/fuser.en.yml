@@ -1,17 +1,24 @@
 en:
   fuser:
     endpoints:
-      verify_token:           "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=%{api_key}"
-      refresh_token:          "https://securetoken.googleapis.com/v1/token?key=%{api_key}"
-      sign_up:                "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=%{api_key}"
-      sign_in:                "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=%{api_key}"
-      reset_password:         "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode?key=%{api_key}"
-      verify_reset_password:  "https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPassword?key=%{api_key}"
-      confirm_reset_password: "https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPassword?key=%{api_key}"
-      change_email:           "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
-      change_password:        "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
-      set_account_info:       "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
-      oauth_sign_in:       "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAssertion?key=%{api_key}"
+      verify_token:               "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=%{api_key}"
+      refresh_token:              "https://securetoken.googleapis.com/v1/token?key=%{api_key}"
+      anonymous_sign_in:          "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=%{api_key}"
+      sign_up:                    "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=%{api_key}"
+      sign_in:                    "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=%{api_key}"
+      reset_password:             "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode?key=%{api_key}"
+      verify_reset_password:      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPassword?key=%{api_key}"
+      confirm_reset_password:     "https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPassword?key=%{api_key}"
+      change_email:               "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
+      change_password:            "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
+      set_account_info:           "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
+      get_account_info:           "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=%{api_key}"
+      oauth_sign_in:              "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAssertion?key=%{api_key}"
+      oauth_link:                 "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAssertion?key=%{api_key}"
+      unlink_provider:            "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
+      send_email_verification:    "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode?key=%{api_key}"
+      confirm_email_verification: "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=%{api_key}"
+      delete_account:             "https://www.googleapis.com/identitytoolkit/v3/relyingparty/deleteAccount?key=%{api_key}"
     errors:
       default: "Something went wrong please try again."
       sign_up:
@@ -25,6 +32,7 @@ en:
       anonymous_sign_in:
         operation_not_allowed: "Anonymous user sign-in is disabled for this project."
       verify_token:
+        invalid_id_token: "ID Token format is incorrect or the token is invalid for some reason."
         invalid_custom_token: "The custom token format is incorrect or the token is invalid for some reason."
         credential_mismatch: "The custom token corresponds to a different Firebase project."
       refresh_token:
@@ -45,12 +53,6 @@ en:
         expired_oob_code: "The action code has expired."
         invalid_oob_code: "The action code is invalid. This can happen if the code is malformed, expired, or has already been used."
         user_disabled: "The user account has been disabled by an administrator."
-      change_email:
-        email_exists: "The email address is already in use by another account."
-        invalid_id_token: "The user's credential is no longer valid. The user must sign in again."
-      change_password:
-        invalid_id_token: "The user's credential is no longer valid. The user must sign in again."
-        weak_password: "The password must be 6 characters long or more."
       set_account_info:
         credentials_too_old_login_again: "The user's credential is no longer valid. The user must sign in again."
         invalid_id_token: "The user's credential is no longer valid. The user must sign in again."

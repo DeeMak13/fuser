@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'dotenv/load'
 require 'fuser'
 
 # You can add fixtures and/or initialization code here to make experimenting
@@ -10,6 +11,10 @@ require 'fuser'
 # (If you use this, don't forget to add pry to your Gemfile!)
 # require "pry"
 # Pry.start
+
+Fuser.configure do |config|
+  config.api_key = ENV['FIREBASE_API_KEY']
+end
 
 require 'irb'
 IRB.start(__FILE__)
