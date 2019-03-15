@@ -10,20 +10,19 @@ RSpec.describe Fuser do
     let(:email) { 'user@example.com' }
     let(:password) { 'password' }
     let(:new_password) { 'new_password' }
-    let(:new_email) { 'new_user@example.com' }
     let(:oob_code) { 'oobCode' }
-    let(:action_arguments) do
+    let(:fuser_params) do
       {
-        verify_token: { token: token },
-        refresh_token: { token: token },
-        sign_up: { email: email, password: password },
-        sign_in: { email: email, password: password },
-        anonymous_sign_in: nil,
-        reset_password: { email: email },
-        verify_reset_password: { oob_code: oob_code },
-        confirm_reset_password: { new_password: new_password, oob_code: oob_code },
-        change_email: { token: token, new_email: new_email },
-        change_password: { token: token, new_password: new_password }
+        token: 'token',
+        email: 'user@example.com',
+        password: 'password',
+        new_password: 'new_password',
+        oob_code: 'oobCode',
+        display_name: 'Cool Dude',
+        request_uri: 'http://localhost:3000',
+        access_token: 'oauth_access_token',
+        provider_id: 'facebook.com',
+        providers: ['facebook.com', 'password'],
       }
     end
 
@@ -33,8 +32,7 @@ RSpec.describe Fuser do
 
     I18n.t('fuser.endpoints').keys.each do |action|
       describe ".#{action}" do
-        subject { described_class.public_send(action, arguments) }
-        let(:arguments) { action_arguments[action] }
+        subject { described_class.public_send(action, fuser_params) }
 
         context 'valid request' do
           let!(:request) do

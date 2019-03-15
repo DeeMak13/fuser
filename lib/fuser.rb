@@ -24,7 +24,7 @@ module Fuser
   end
 
   I18n.t('fuser.endpoints').keys.each do |request_action|
-    define_singleton_method request_action do |params|
+    define_singleton_method request_action do |params = {}|
       call(request_action, params)
     end
   end
